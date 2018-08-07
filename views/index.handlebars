@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="row stuff">
+        <img src="/assets/images/burger.jpg" id="headerpic" />
+    </div>
+    <div class="row">
+        <div class="col-6">
+            {{#each burgers}} {{#unless devoured}}
+
+            <div class="row burgerItem">
+                <div class="col-8">
+                    {{ id }}: {{burger_name}}
+                </div>
+                <div class="col-4">
+                    <button type="button" class="btn btn-secondary" burger_id={{ burger_id }}>Devour!</button>
+                </div>
+            </div>
+
+            {{/unless}} {{/each}}
+        </div>
+        <div class="col-6">
+            {{#each burgers}} {{#if devoured}}
+
+            <div class="row">
+                <div class="col">
+                    {{ id }}: {{burger_name}}
+                </div>
+            </div>
+
+            {{/if}} {{/each}}
+        </div>
+    </div>
+    <div class="row">
+        <form class="form-group">
+            <input type="text" id="addBurger" placeholder="Burger Name">
+            <button type="submit" id="addBurgerSubmit">Submit</button>
+        </form>
+    </div>
+</div>
