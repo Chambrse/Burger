@@ -10,30 +10,27 @@ router.get("/", function (req, res) {
         let allObj = {
             burgers: data
         };
-        console.log(allObj);
         res.render("index", allObj);
     });
 });
 
 router.post("/api/burgers", function (req, res) {
 
-    console.log(req.body);
-
     burger.create(["burger_name"], [req.body.newBurgerName], function (result) {
         res.json({ id: result.insertId });
     });
 
-    /*   cat.create([
-        "name", "sleepy"
-      ], [
-        req.body.name, req.body.sleepy
-      ], function(result) {
-        // Send back the ID of the new quote
-        res.json({ id: result.insertId });
-      }); */
 });
 
-router.put("/api/cats/:id", function (req, res) {
+router.put("/api/burgers/:id", function (req, res) {
+
+    burger.update({
+        devoured: true
+      }, "id = " + req.params.id, function (result) {
+          console.log(result);
+        res.json({ result: result});
+      });
+
     /*   var condition = "id = " + req.params.id;
     
       console.log("condition", condition);

@@ -19,6 +19,7 @@ body {
   margin: 5px;
   background-color: purple;
   border-radius: 5px;
+  height: 60px;
 }
 
 .burgerItem .col-4 {

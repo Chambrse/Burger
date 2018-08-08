@@ -11,7 +11,7 @@
                     {{ id }}: {{burger_name}}
                 </div>
                 <div class="col-4">
-                    <button type="button" class="btn btn-secondary" burger_id={{ burger_id }}>Devour!</button>
+                    <button type="button" class="btn btn-secondary devourButton" burger_id="{{ id }}">Devour!</button>
                 </div>
             </div>
 
@@ -20,10 +20,8 @@
         <div class="col-6">
             {{#each burgers}} {{#if devoured}}
 
-            <div class="row">
-                <div class="col">
+            <div class="row burgerItem">
                     {{ id }}: {{burger_name}}
-                </div>
             </div>
 
             {{/if}} {{/each}}
