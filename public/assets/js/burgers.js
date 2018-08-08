@@ -1,12 +1,13 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
+
+  //submit button on add a burger form
   $("#addBurgerSubmit").on("click", function (event) {
 
     event.preventDefault();
 
+    // Add the burger to the database
     let newBurgerName = { newBurgerName: $("#addBurger").val().trim() };
-
-    // Send the PUT request.
     $.ajax("/api/burgers", {
       type: "POST",
       data: newBurgerName
@@ -17,16 +18,14 @@ $(function () {
     });
   });
 
+  // When a burger is devoured
   $(".devourButton").on("click", function (event) {
 
+    //update the devoured boolean in the database
     let burgerUpdateId = $(this).attr("burger_id");
-
-    console.log(burgerUpdateId);
-
     $.ajax("/api/burgers/" + burgerUpdateId, {
       type: "PUT"
     }).then(function (res) {
-      console.log("shouldreload");
 
       location.reload();
 
